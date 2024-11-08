@@ -11,19 +11,40 @@
 </head>
 
 <body>
-    <main class="container-md bg-black mt-3 debug ">
-        <div class="row g-5 justify-content-center m-2">
+    <div class="titolo text-center text-light fw-bold py-3">
+        <h1>CALCOLA IL PREZZO DEL BIGLIETTO</h1>
+    </div>
+    
+    <main class="container-md d-flex flex-column justify-content-around">
+
+        <div class="row g-5 m-2 d-flex justify-content-center">
             <div class="col-3">
-                <input type="text" class="form-control" placeholder="First name">
+                <input name="nameSurname" type="text" class="form-control" placeholder="First Name/ Surname">
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input name="Km" type="text" class="form-control" placeholder="Km">
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" placeholder="Last name">
+                <select id="inputState" class="form-select">
+                    <option disabled selected>Scegli la tua fascia di età</option>
+                    <option value="Adulto">Adulto</option>
+                    <option value="Maggiorenne">Maggiorenne</option>
+                    <option value="Minorenne">Minorenne</option>
+                </select>
             </div>
         </div>
+        <div class="submitReset d-flex justify-content-center gap-3">
+            <button type="submit" class="btn btn-primary mb-3">Genera</button>
+            <button type="submit" class="btn btn-primary mb-3">Reset</button>
+        </div>
     </main>
+    <div class="biglietto text-center text-white py-4">
+        <h2>IL TUO BIGLIETTO</h2>
+    </div>
+    <section class="biglietto container-md">
+
+    </section>
+
 
     <script src="JavaScript/script.js"></script>
 </body>
