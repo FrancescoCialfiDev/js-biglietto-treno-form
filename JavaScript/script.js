@@ -30,9 +30,10 @@ console.log(btnReset);
 // ------------ Event Click On Button ------------ //
 btnGenera.addEventListener("click", function (event) {
   event.preventDefault();
-  const biglietto = document.getElementById("biglietto");
+  const biglietto = document.querySelector(".containerBiglietto");
   biglietto.innerHTML += `
-<h4 class="fw-bold">DETTAGLIO PASSEGGERI</h4>
+  <section id="biglietto" class="py-3 container-md">
+  <h4 class="fw-bold">DETTAGLIO PASSEGGERI</h4>
       <div class="user-info d-flex row h-75">
         <div class="immagine col-2">
           <img src="" alt="" />
@@ -56,7 +57,8 @@ btnGenera.addEventListener("click", function (event) {
           </div>
         </div>
       </div>
-      log
+      </section>
+
 `;
 
   const offertaPiano = document.querySelector(".offerta");
