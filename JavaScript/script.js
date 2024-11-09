@@ -29,8 +29,8 @@ console.log(btnReset);
 
 // ------------ Event Click On Button ------------ //
 btnGenera.addEventListener("click", function (event) {
-  event.preventDefault();
-  const biglietto = document.querySelector(".containerBiglietto");
+  event.preventDefault(); // Previene il refresh default della funzione submit del bottone
+  const biglietto = document.querySelector(".containerBiglietto"); // Prendiamo elemento di appoggio per inserire il nostro html attraverso JS
   biglietto.innerHTML += `
   <section id="biglietto" class="py-3 container-md">
   <h4 class="fw-bold">DETTAGLIO PASSEGGERI</h4>
@@ -58,9 +58,9 @@ btnGenera.addEventListener("click", function (event) {
         </div>
       </div>
       </section>
-
 `;
 
+  // ------------ Condizione che inpone il cambio di piano al click / solo testo su hud dell'HTML ------------ //
   const offertaPiano = document.querySelector(".offerta");
   if (selectForm.value === "minorenne") {
     offertaPiano.textContent = "Junior Plane";
@@ -90,10 +90,3 @@ function calcoloPrezzo() {
   }
   return parseFloat(prezzo).toFixed(2) + "€";
 }
-
-// ------------ Creiamo un elementi html per mezzo di JS ------------ //
-
-// console.log(nomeForm.value);
-// console.log(kmForm.value);
-// console.log(selectForm.value);
-// console.log(biglietto);
