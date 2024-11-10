@@ -11,59 +11,66 @@
 </head>
 
 <body>
-  
+
+  <header class="d-flex align-items-center justify-content-around">
+    <div class="immagine d-flex align-items-center"><img
+        src="img/train-emblem-logo-icon-vector-260nw-2464421075 (2).png" alt="">
+      <h2>Train Lines</h2>
+    </div>
+    <div class="listaFlex">
+      <ol class="d-flex text-light">
+        <li>Home</li>
+        <li>Tariffe</li>
+        <li>Documentazione</li>
+        <li>Contatti</li>
+        <li>Privacy</li>
+      </ol>
+    </div>
+    <div class="buttons">
+      <button>Accesso</button>
+    </div>
+  </header>
+
   <!-- !###### SEZIONE FORM ###### -->
-
-  <!-- Titolo del documento -->
-  <div class="titolo text-center text-light fw-bold py-3">
-    <h1>CALCOLA IL PREZZO DEL BIGLIETTO</h1>
-  </div>
-
   <!-- Main del documento & compilazione form dati -->
-  <main class="container-md d-flex flex-column justify-content-around">
-    <form class="forme">
-
-      <!-- Prime tre caselle input -->
-      <div class="row g-5 m-2 d-flex justify-content-center">
-        <div class="col-3">
-
-          <!-- Prima casella input Nome & Cognome -->
-          <input name="nameSurname" type="text" class="nomeInput form-control" placeholder="First Name/ Surname" />
+  <main>
+    <div class="bgImage"><img src="img/360_F_649218365_AAsj7PZAwU3LZdN1RfmMVBQeziZQxAsF.jpg" alt=""></div>
+    <div class=" mainContent container-md d-flex flex-column justify-content-around">
+      <form class="forme">
+        <h2 class="text-center">Crea il tuo biglietto</h2>
+        <!-- Prime tre caselle input -->
+        <div class="row g-5 m-2 d-flex justify-content-center">
+          <div class="col-5">
+            <!-- Prima casella input Nome & Cognome -->
+            <input required name="nameSurname" type="text" class="nomeInput form-control"
+              placeholder="First Name/ Surname" />
+          </div>
+          <div class="col-3">
+            <!-- Seconda casella input Km -->
+            <input name="Km" type="number" class="kmTot form-control" placeholder="Km" />
+          </div>
+          <div class="age col-4">
+            <!-- Terza casella input Select Età -->
+            <select id="inputState" class="form-select mb-3">
+              <option disabled selected>Categoria</option>
+              <option value="senior">Senior</option>
+              <option value="maggiorenne">Maggiorenne</option>
+              <option value="minorenne">Minorenne</option>
+            </select>
+          </div>
         </div>
-        <div class="col-3">
-
-          <!-- Seconda casella input Km -->
-          <input name="Km" type="number" class="kmTot form-control" placeholder="Km" />
+        <!-- Input Genera/ Reset -->
+        <div class="submitReset d-flex justify-content-center gap-3">
+          <button type="submit" class="genera btn btn-primary mb-3">
+            Genera
+          </button>
+          <button type="reset" class="reset btn btn-primary mb-3">Reset</button>
         </div>
-        <div class="age col-3">
-
-          <!-- Terza casella input Select Età -->
-          <select id="inputState" class="form-select">
-            <option disabled selected>Scegli la tua fascia di età</option>
-            <option value="senior">Senior</option>
-            <option value="maggiorenne">Maggiorenne</option>
-            <option value="minorenne">Minorenne</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Input Genera/ Reset -->
-      <div class="submitReset d-flex justify-content-center gap-3">
-        <button type="submit" class="genera btn btn-primary mb-3">
-          Genera
-        </button>
-        <button type="reset" class="reset btn btn-primary mb-3">Reset</button>
-      </div>
-    </form>
+      </form>
   </main>
+  </div>
 
   <!-- !###### SEZIONE BIGLIETTO ###### -->
-
-  <!-- Titolo sezione biglietto -->
-  <div class="biglietto text-center text-white py-4">
-    <h2>IL TUO BIGLIETTO</h2>
-  </div>
-
   <!-- Lista dettagli utente -->
   <div class="containerBiglietto"></div>
 

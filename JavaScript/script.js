@@ -6,9 +6,6 @@ console.clear(); // Clear default browser console code
 const nomeForm = document.querySelector("input.nomeInput");
 console.log(nomeForm);
 const kmForm = document.querySelector("input.kmTot");
-console.log(kmForm);
-const ageForm = document.querySelector("input.age");
-console.log(ageForm);
 const selectForm = document.getElementById("inputState");
 console.log(selectForm);
 
@@ -30,6 +27,14 @@ console.log(btnReset);
 // ------------ Event Click On Button ------------ //
 btnGenera.addEventListener("click", function (event) {
   event.preventDefault(); // Previene il refresh default della funzione submit del bottone
+
+
+  // Controllo se tutti i campi di input sono stati inseriti altrimenti la funzione si interrompe
+  // if (!nomeForm.value || !kmForm.value || !selectForm.value) {
+  //   alert("Per favore, compila tutti i campi richiesti.");
+  //   return;
+  // } 
+
   const biglietto = document.querySelector(".containerBiglietto"); // Prendiamo elemento di appoggio per inserire il nostro html attraverso JS
   biglietto.innerHTML += `
   <section id="biglietto" class="py-3 container-md">
@@ -49,7 +54,7 @@ btnGenera.addEventListener("click", function (event) {
           </div>
           <div class="item">
             <h5>Codice CP</h5>
-            <p>92911</p>
+            <p id="codiceUnivoco"></p>
           </div>
           <div class="item">
             <h5>Costo Biglietto</h5>
@@ -70,6 +75,9 @@ btnGenera.addEventListener("click", function (event) {
     offertaPiano.textContent = "Standard Plane";
   }
 
+  const codiceUnivoco = document.getElementById("codiceUnivoco")
+  codiceUnivoco.textContent = generaNumeroCinqueCifre();
+
   const htmlPrezzo = document.querySelector(".prezzo");
   htmlPrezzo.innerHTML = calcoloPrezzo();
 });
@@ -89,4 +97,8 @@ function calcoloPrezzo() {
     console.log(`Il prezzo totale del tuo biglietto è ${prezzo.toFixed(2)}"€"`);
   }
   return parseFloat(prezzo).toFixed(2) + "€";
+}
+// ------------ FUNZIONE NUMERO RANDOM ------------ //
+function generaNumeroCinqueCifre() {
+  return Math.floor(10000 + Math.random() * 90000);
 }
