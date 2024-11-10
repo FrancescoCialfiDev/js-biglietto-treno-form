@@ -1,5 +1,5 @@
 // ------------ Default properties ------------ //
-"use stritct"; // Hight code controls
+'"use strict";' // Hight code controls
 console.clear(); // Clear default browser console code
 
 // ------------ Variables Form ------------ //
@@ -23,20 +23,19 @@ console.log(btnReset);
  *              i click sui pulsanti e i dati     *
  *              inseriti nel form.                *
  *************************************************/
-
-// ------------ Event Click On Button ------------ //
+// ------------ FUNZIONE GENERA BIGLIETTO ------------ //
 btnGenera.addEventListener("click", function (event) {
   event.preventDefault(); // Previene il refresh default della funzione submit del bottone
 
 
   // Controllo se tutti i campi di input sono stati inseriti altrimenti la funzione si interrompe
-  // if (!nomeForm.value || !kmForm.value || !selectForm.value) {
-  //   alert("Per favore, compila tutti i campi richiesti.");
-  //   return;
-  // } 
+   if (!nomeForm.value || !kmForm.value || !selectForm.value) {
+    alert("Per favore, compila tutti i campi richiesti.");
+     return;
+  } 
 
   const biglietto = document.querySelector(".containerBiglietto"); // Prendiamo elemento di appoggio per inserire il nostro html attraverso JS
-  biglietto.innerHTML += `
+  biglietto.innerHTML = `
   <section id="biglietto" class="py-3 container-md">
   <h4 class="fw-bold">DETTAGLIO PASSEGGERI</h4>
       <div class="user-info d-flex row h-75">
@@ -80,8 +79,21 @@ btnGenera.addEventListener("click", function (event) {
 
   const htmlPrezzo = document.querySelector(".prezzo");
   htmlPrezzo.innerHTML = calcoloPrezzo();
+
+  nomeForm.value = '';
+  kmForm.value = '';
+  selectForm.selectedIndex = 0;
+  
 });
 
+btnReset.addEventListener("click", function (event) {
+  event.preventDefault(); // Previene il comportamento predefinito
+
+  // Resetta i valori degli input
+  nomeForm.value = '';
+  kmForm.value = '';
+  selectForm.selectedIndex = 0;
+});
 // ------------ FUNZIONE CALCOLO PREZZO ------------ //
 function calcoloPrezzo() {
   const tariffaStandard = kmForm.value * 0.21;
